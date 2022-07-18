@@ -31,11 +31,9 @@ namespace ConsoleApp2
             Console.ReadLine();  */
             #endregion
             #region //Act 8.2
+            /*
             string path = "F:/C#/Calc.txt";
-            /*if (!File.Exists(path));
-            {
-                File.Create(path);
-            }*/
+
             Random rnd = new Random();
             
             StreamWriter sw = new StreamWriter(path,true);
@@ -50,13 +48,62 @@ namespace ConsoleApp2
             int Sum = new int();
             for (int i = 0; i < 10; i++)
             {
-                Sum = Sum + Convert.ToInt32(sr.ReadLine());
+                Sum += Convert.ToInt32(sr.ReadLine());
 
             }
             Console.WriteLine(Sum);
-            Console.ReadKey();
+            Console.ReadKey();  */
             #endregion
 
+            #region //Act 9
+
+            
+            Console.WriteLine(" Введите число");
+            double Num1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine(" Введите действие (символы +,-,*,/)");
+            string Act = Console.ReadLine();
+            Console.WriteLine(" Введите число");
+            double Num2 = Convert.ToDouble(Console.ReadLine());
+            
+
+                switch (Act)
+                {
+                    case "/":
+                        {
+                            if (Num2 != 0)
+
+                                Console.WriteLine(Num1 / Num2);
+                            else
+                                Console.WriteLine("Ошибка: Деление на ноль");
+                        break;
+                        }
+                    case "*":
+                        {
+                            Console.WriteLine(Num1 * Num2);
+                            break;
+                        }
+                    case "-":
+                        {
+                            Console.WriteLine(Num1 - Num2);
+                            break;
+                        }
+                    case "+":
+                        {
+                            Console.WriteLine(Num1 + Num2);
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Не правильный символ действия");
+                            break;
+                        }
+
+                }
+
+            
+
+            Console.ReadKey();
+            #endregion
         }
     }
 }
