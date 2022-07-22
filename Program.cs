@@ -55,55 +55,125 @@ namespace ConsoleApp2
             Console.ReadKey();  */
             #endregion
 
-            #region //Act 9
+            #region //Act 9 калькулятор
+            /*
 
-            
             Console.WriteLine(" Введите число");
             double Num1 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine(" Введите действие (символы +,-,*,/)");
             string Act = Console.ReadLine();
             Console.WriteLine(" Введите число");
             double Num2 = Convert.ToDouble(Console.ReadLine());
-            
 
-                switch (Act)
-                {
-                    case "/":
-                        {
-                            if (Num2 != 0)
 
-                                Console.WriteLine(Num1 / Num2);
-                            else
-                                Console.WriteLine("Ошибка: Деление на ноль");
+            switch (Act)
+            {
+                case "/":
+                    {
+                        if (Num2 != 0)
+
+                            Console.WriteLine(Num1 / Num2);
+                        else
+                            Console.WriteLine("Ошибка: Деление на ноль");
                         break;
-                        }
-                    case "*":
-                        {
-                            Console.WriteLine(Num1 * Num2);
-                            break;
-                        }
-                    case "-":
-                        {
-                            Console.WriteLine(Num1 - Num2);
-                            break;
-                        }
-                    case "+":
-                        {
-                            Console.WriteLine(Num1 + Num2);
-                            break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine("Не правильный символ действия");
-                            break;
-                        }
+                    }
+                case "*":
+                    {
+                        Console.WriteLine(Num1 * Num2);
+                        break;
+                    }
+                case "-":
+                    {
+                        Console.WriteLine(Num1 - Num2);
+                        break;
+                    }
+                case "+":
+                    {
+                        Console.WriteLine(Num1 + Num2);
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Не правильный символ действия");
+                        break;
+                    }
 
-                }
+            }
 
-            
 
+
+            Console.ReadKey();  */
+            #endregion
+
+            #region //Акт 10 треугольник углы и радианы
+            Trg TriO = new Trg();
+            TriO.trU1 = 40;
+            Console.WriteLine(TriO.ToRadians(TriO.trU1));
             Console.ReadKey();
             #endregion
         }
+    }
+    class Trg
+    {
+        public float trU1, trU2, trU3; // обьявление полей(переменных)
+
+        public float TrU1 // обьявление своства переменной имя начинается с заглавной
+        {
+            set
+            {
+                if (value > 0 && value < 180 && (value + trU2 + trU3) == 180)
+                {
+                    trU1 = value;
+                }
+                else
+                {
+                    Console.WriteLine("Невозможное значение угла");
+                }
+            }
+
+        }
+
+        public float TrU2
+        {
+            set
+            {
+                if (value > 0 && value < 180 && (value + trU1 + trU3) == 180)
+                {
+                    trU1 = value;
+                }
+                else
+                {
+                    Console.WriteLine("Невозможное значение угла");
+                }
+            }
+
+        }
+
+        public float TrU3
+        {
+            set
+            {
+                if (value > 0 && value < 180 && (value + trU2 + trU1) == 180)
+                {
+                    trU1 = value;
+                }
+                else
+                {
+                    Console.WriteLine("Невозможное значение угла");
+                }
+            }
+
+        }
+
+        public Trg() // конструктор (обьявление начальных значений)
+            {
+                trU1 = trU2 = trU3 = 60;
+            }
+        public double ToRadians(double trU)
+        {
+            trU = trU * Math.PI / 180; // тело метода
+            return trU;
+        }
+
     }
 }
